@@ -1,12 +1,10 @@
 name: Catalog Service
-
 on:
   push:
     paths:
       - catalog-service/**
     branches:
       - '**'
-
 jobs:
   build:
     name: Build
