@@ -24,5 +24,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: 'maven'
+      - name: Add spotless apply
+        run: ./mvnw spotless:apply
       - name: Build with Maven
         run: ./mvnw -ntp verify
