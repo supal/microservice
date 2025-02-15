@@ -8,6 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.nio.channels.FileChannel;
+import java.util.Optional;
+
 @Service
 @Transactional
 public class ProductService {
@@ -34,5 +37,9 @@ public class ProductService {
                 productsPage.isLast(),
                 productsPage.hasNext(),
                 productsPage.hasPrevious());
+    }
+
+    public Optional<Product> getProductByCode(String code) {
+        return productRepository.findByCode(code).map(ProductMapper::toProduct);
     }
 }
